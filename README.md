@@ -1,4 +1,5 @@
 Web Application  Vulnerability Scanner
+
 A Python-based web application security assessment tool that crawls a target web application, discovers pages and input points, runs payload-based checks for selected vulnerability classes, reviews HTTP security headers, and generates a structured assessment report.
 Use only on applications you own or have explicit permission to test. This scanner sends active test requests and may modify application state or trigger security controls. Use a deliberately vulnerable lab such as DVWA or a staging application with written authorization.
 
@@ -60,7 +61,6 @@ Clone the repository and enter the project directory:
 git clone <YOUR_GITHUB_REPOSITORY_URL>
 cd <YOUR_REPOSITORY_DIRECTORY>
 Create and activate a virtual environment.
-
 Windows PowerShell:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -86,6 +86,7 @@ Suppress most console output:
 python ethical-pentest-scanner.py --target http://127.0.0.1/dvwa --quiet
 Show available command-line options:
 python ethical-pentest-scanner.py --help
+
 Command-line options
 Option	Description	Default
 --target	Target application URL; required	None
@@ -113,6 +114,7 @@ The JSON report contains these top-level sections:
 Each finding can include fields such as vulnerability type, severity, confidence, target URL, parameter, description, evidence, payload used, request/response details, remediation, references, CWE ID, OWASP category, CVSS score, risk score, business/technical impact, and compliance impact.
 
 Treat reports as sensitive: they can contain URLs, parameter values, request/response excerpts, and other application details. Do not commit reports from real systems to a public repository without reviewing and sanitizing them.
+
 Understanding Findings
 - Severity and risk scores are estimates produced by the scanner's logic, not an independent validation or a formal guarantee of exploitability.
 - Evidence matters. Review the recorded URL, parameter, request/response, and payload before deciding whether a finding is real.
@@ -134,7 +136,8 @@ Project Structure
 ├── ethical-pentest-scanner.py
 └── reports/
     └── ethical_pentest_report.json
-The exact structure may vary depending on how the repository is organized. Keep generated reports out of version control when they contain sensitive target data.
+
+
 Responsible Use
 This project is intended for education and authorized security assessment only.
 - Test only systems you own or have explicit written permission to assess.
